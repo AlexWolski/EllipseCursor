@@ -1,0 +1,69 @@
+<!--
+unity webgl responsive
+
+template by dom
+dom@crowscrowscrows.com
+https://twitter.com/zerstoerer
+
+source code on github
+https://github.com/sno/unity-webgl-responsive
+-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Ellipse Cursor Experiment</title>
+  </head>
+  <body>
+    <div class="webgl-wrapper">
+      <div class="aspect"></div>
+      <div class="webgl-content">
+        <div id="unityContainer">
+          <canvas id="unity-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="MyLoader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/Build.data.br",
+        frameworkUrl: "Build/Build.framework.js.br",
+        codeUrl: "Build/Build.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "BubbleCursor",
+        productVersion: "1.0",
+      }).then((unityInstance) => {
+        myGameInstance = unityInstance;
+        window.unityInstance = unityInstance;
+      });
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAccY2LDNsEeb6kiBN_uiT3YxfdL7HpIdk",
+        authDomain: "ui-design-experiment.firebaseapp.com",
+        databaseURL: "https://ui-design-experiment-default-rtdb.firebaseio.com",
+        projectId: "ui-design-experiment",
+        storageBucket: "ui-design-experiment.appspot.com",
+        messagingSenderId: "1093686041042",
+        appId: "1:1093686041042:web:9e28147bcd3294faaf900b"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </body>
+</html>
